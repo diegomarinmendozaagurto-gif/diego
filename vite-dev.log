@@ -1,0 +1,46 @@
+
+> cloudops-dashboard@1.0.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m463[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m9:48:39 a. m.[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/types/cloud.ts[22m
+[2m9:49:47 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Services.tsx[22m
+[2m9:50:47 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ServiceCard.tsx, /src/index.css[22m
+[2m9:50:47 a. m.[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/components/ServiceCard.tsx[22m Could not Fast Refresh (new export)
+[2m9:50:47 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Services.tsx[22m
+[2m9:50:55 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ServiceCard.tsx, /src/index.css[22m
+[2m9:50:55 a. m.[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/components/ServiceCard.tsx[22m Could not Fast Refresh ("categoryColors" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m9:50:55 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Services.tsx[22m
+[2m9:51:00 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ServiceCard.tsx, /src/index.css[22m
+[2m9:51:00 a. m.[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/components/ServiceCard.tsx[22m Could not Fast Refresh ("categoryColors" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m9:51:00 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Services.tsx[22m
+[2m9:51:03 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ServiceCard.tsx, /src/index.css[22m
+[2m9:51:03 a. m.[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/components/ServiceCard.tsx[22m Could not Fast Refresh ("categoryColors" export is incompatible).[2m9:51:21 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m9:51:23 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m9:51:26 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m9:55:59 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m9:56:04 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m9:56:15 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Services.tsx, /src/index.css[22m
+[2m11:00:02 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/RegionCard.tsx, /src/index.css[22m
+[2m11:00:02 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Infrastructure.tsx, /src/index.css[22m
+[2m11:00:16 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/RegionCard.tsx, /src/index.css[22m
+[2m11:00:16 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Infrastructure.tsx, /src/index.css[22m
+[2m11:01:53 a. m.[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/types/cloud.ts[22m
+[2m11:01:53 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Infrastructure.tsx, /src/index.css[22m
+[2m11:01:59 a. m.[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/types/cloud.ts[22m
+[2m11:01:59 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Infrastructure.tsx, /src/index.css[22m
+[2m11:02:20 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/RegionCard.tsx, /src/index.css[22m
+[2m11:02:20 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Infrastructure.tsx[22m
+[2m11:02:33 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Infrastructure.tsx[22m
+[2m11:02:33 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/RegionCard.tsx, /src/in[2m11:02:33 [2m11:02:44 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/RegionCard.tsx, /src/index.css[22m
+[2m11:02:47 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/RegionCard.tsx, /src/index.css[22m
+[2m11:08:08 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CostCard.tsx, /src/index.css[22m
+[2m11:08:08 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Costs.tsx, /src/index.css[22m
+[2m11:08:17 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CostCard.tsx, /src/index.css[22m
+[2m11:08:17 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Costs.tsx, /src/index.css[22m
+2m11:08:17 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CostCard.tsx, /src/index.css[22m
+[2m11:08:17 a. m.[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Costs.tsx, /src/index.css[22m

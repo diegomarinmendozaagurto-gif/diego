@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary antialiased;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  h1 {
+    @apply text-[28px] font-bold text-text-primary;
+  }
+
+  h2 {
+    @apply text-[19px] font-semibold text-text-primary;
+  }
+
+  p, span, div {
+    @apply text-[14px];
+  }
+}
+
+@layer components {
+  /* Card base reutilizable — el resto de las tarjetas (StatCard, ServiceCard, etc.)
+     parten de esta clase para mantener el mismo radio, sombra y borde en todo el sistema */
+  .app-card {
+    @apply bg-card border border-border rounded-card shadow-card p-5;
+  }
+}
