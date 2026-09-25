@@ -17,9 +17,9 @@ const flagByRegion: Record<string, string> = {
 };
 
 const statusColor: Record<Region["status"], string> = {
-  ok: "#16A34A",
-  warning: "#F59E0B",
-  error: "#DC2626",
+  ok: "var(--status-ok)",
+  warning: "var(--status-warning)",
+  error: "var(--status-error)",
 };
 
 export default function RegionCard({ region, isActive = false }: RegionCardProps) {
@@ -31,7 +31,7 @@ export default function RegionCard({ region, isActive = false }: RegionCardProps
       id={`region-card-${region.id}`}
       className={`app-card flex flex-col gap-3 transition-all duration-200 ${
         isActive
-          ? "border-primary/80 bg-primary/[0.02] shadow-[0_0_0_1px_rgba(59,130,246,0.18),0_16px_40px_rgba(59,130,246,0.12)]"
+          ? "hud-active border-primary/80 bg-primary/[0.02]"
           : ""
       }`}
     >
@@ -59,7 +59,7 @@ export default function RegionCard({ region, isActive = false }: RegionCardProps
         <StatusBadge status={region.status} />
       </div>
 
-      <div className="space-y-2 rounded-xl border border-border bg-background/70 p-2.5">
+      <div className="space-y-2 rounded-lg border border-border bg-background/70 p-2.5">
         <div className="flex items-center justify-between gap-2 text-[11px] uppercase tracking-wide text-text-secondary">
           <span className="inline-flex items-center gap-1.5">
             <Globe2 size={12} strokeWidth={2.1} />
@@ -97,7 +97,7 @@ export default function RegionCard({ region, isActive = false }: RegionCardProps
           {region.deployedServices.map((service) => (
             <span
               key={service}
-              className="rounded-full border border-border bg-background px-2 py-1 text-[11px] font-medium text-text-primary shadow-sm"
+              className="rounded-full border border-border bg-background px-2 py-1 text-[11px] font-medium text-text-primary shadow-sm dark:shadow-none"
             >
               {service}
             </span>

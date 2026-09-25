@@ -7,9 +7,9 @@ interface StatusBadgeProps {
 }
 
 const config: Record<StatusLevel, { color: string; bg: string; text: string; Icon: typeof CheckCircle2 }> = {
-  ok: { color: "#16A34A", bg: "#F0FDF4", text: "Correcto", Icon: CheckCircle2 },
-  warning: { color: "#F59E0B", bg: "#FFFBEB", text: "Requiere revisión", Icon: AlertTriangle },
-  error: { color: "#DC2626", bg: "#FEF2F2", text: "Problema", Icon: XCircle },
+  ok: { color: "var(--status-ok)", bg: "var(--status-ok-bg)", text: "Correcto", Icon: CheckCircle2 },
+  warning: { color: "var(--status-warning)", bg: "var(--status-warning-bg)", text: "Requiere revisión", Icon: AlertTriangle },
+  error: { color: "var(--status-error)", bg: "var(--status-error-bg)", text: "Problema", Icon: XCircle },
 };
 
 export default function StatusBadge({ status, label }: StatusBadgeProps) {

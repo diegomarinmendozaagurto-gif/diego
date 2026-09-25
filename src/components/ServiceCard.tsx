@@ -39,7 +39,7 @@ export const categoryColors: Record<AWSService["category"], string> = {
   Cómputo: "text-primary",
   Almacenamiento: "text-cost",
   "Base de datos": "text-security",
-  Redes: "text-sidebar",
+  Redes: "text-network",
   Seguridad: "text-alert",
 };
 
@@ -64,7 +64,7 @@ export default function ServiceCard({ service, onOpen }: ServiceCardProps) {
           onOpen();
         }
       }}
-      className="app-card group flex cursor-pointer flex-col gap-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+      className="app-card group flex cursor-pointer flex-col gap-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 dark:hover:shadow-hud"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">

@@ -16,6 +16,7 @@ import {
 } from "recharts";
 import CostCard from "../components/CostCard";
 import StatusBadge from "../components/StatusBadge";
+import { useTheme } from "../context/ThemeContext";
 import type { CostItem } from "../types/cloud";
 
 const MOCK_SERVICES = [
@@ -26,7 +27,8 @@ const MOCK_SERVICES = [
   { id: "cloudfront", name: "CloudFront", hourlyCost: 0.0012 },
 ];
 
-const CHART_COLORS = ["#2563EB", "#16A34A", "#F59E0B", "#DC2626", "#0F172A"];
+const LIGHT_CHART_COLORS = ["#2563EB", "#16A34A", "#F59E0B", "#DC2626", "#0F172A"];
+const DARK_CHART_COLORS = ["#22D3EE", "#3B82F6", "#34D399", "#FBBF24", "#FB7185"];
 
 const inputClass =
   "w-full rounded-lg border border-border bg-background px-3 py-2 text-[14px] text-text-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20";
@@ -41,6 +43,7 @@ const formatCurrency = (value: number) =>
   }).format(value);
 
 export default function Costs() {
+  const { isDark } = useTheme();
   const [serviceId, setServiceId] = useState("");
   const [quantity, setQuantity] = useState("");
   const [estimatedHours, setEstimatedHours] = useState("");
@@ -94,7 +97,11 @@ export default function Costs() {
   const budgetStatus =
     usagePercent < 70 ? "security" : usagePercent < 90 ? "cost" : "alert";
   const budgetColor =
-    budgetStatus === "security" ? "#16A34A" : budgetStatus === "cost" ? "#F59E0B" : "#DC2626";
+    budgetStatus === "security"
+      ? "var(--status-ok)"
+      : budgetStatus === "cost"
+        ? "var(--status-warning)"
+        : "var(--status-error)";
   const remainingBudget = monthlyBudget - totals.monthly;
   const isOverBudget = totals.monthly > monthlyBudget;
 
@@ -111,7 +118,7 @@ export default function Costs() {
 
   return (
     <div className="space-y-6">
-      <div className="app-card border-primary/10 bg-primary/[0.02]">
+      <div className="app-card hud-active border-primary/10 bg-primary/[0.02]">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="mb-2 flex items-center gap-2">
@@ -241,7 +248,7 @@ export default function Costs() {
               <button
                 type="submit"
                 disabled={!isValid}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40 dark:text-background"
               >
                 <PlusCircle size={18} />
                 Agregar estimación
@@ -263,7 +270,7 @@ export default function Costs() {
                   {formatCurrency(calculated.rate)}
                 </dd>
               </div>
-              <div className="flex items-center justify-between border-t border-border pt-2">
+              <div className="circuit-divider flex items-center justify-between pt-2">
                 <dt className="text-text-secondary">Costo estimado</dt>
                 <dd className="font-semibold text-text-primary">
                   {formatCurrency(calculated.estimatedCost)}
@@ -353,22 +360,38 @@ export default function Costs() {
                     innerRadius={52}
                     outerRadius={88}
                     paddingAngle={2}
-                    stroke="#FFFFFF"
+                    stroke={isDark ? "#0B1622" : "#FFFFFF"}
                   >
-                    {chartData.map((entry, index) => (
-                      <Cell
-                        key={entry.name}
-                        fill={CHART_COLORS[index % CHART_COLORS.length]}
-                      />
-                    ))}
+                    {chartData.map((entry, index) => {
+                      const colors = isDark ? DARK_CHART_COLORS : LIGHT_CHART_COLORS;
+                      return (
+                        <Cell
+                          key={entry.name}
+                          fill={colors[index % colors.length]}
+                        />
+                      );
+                    })}
                   </Pie>
                   <Tooltip
+                    contentStyle={{
+                      backgroundColor: isDark ? "#0B1622" : "#FFFFFF",
+                      border: `1px solid ${isDark ? "#1E3A52" : "#E2E8F0"}`,
+                      borderRadius: 8,
+                      color: isDark ? "#E2F2FC" : "#1E293B",
+                    }}
+                    labelStyle={{ color: isDark ? "#E2F2FC" : "#1E293B" }}
+                    itemStyle={{ color: isDark ? "#E2F2FC" : "#1E293B" }}
                     formatter={(value) => formatCurrency(Number(value))}
                   />
                   <Legend
                     iconType="circle"
                     formatter={(label) => (
-                      <span style={{ color: "#1E293B", fontSize: 13 }}>
+                      <span
+                        style={{
+                          color: isDark ? "#E2F2FC" : "#1E293B",
+                          fontSize: 13,
+                        }}
+                      >
                         {label}
                       </span>
                     )}

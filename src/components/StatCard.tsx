@@ -26,7 +26,7 @@ export default function StatCard({
   return (
     <div className="app-card flex items-center gap-4">
       <div
-        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${variants[variant]}`}
+        className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${variants[variant]}`}
       >
         <Icon size={22} strokeWidth={2.2} />
       </div>

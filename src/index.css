@@ -2,7 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-background: 248 250 252;
+  --color-sidebar: 15 23 42;
+  --color-primary: 37 99 235;
+  --color-electric: 59 130 246;
+  --color-network: 15 23 42;
+  --color-security: 22 163 74;
+  --color-cost: 245 158 11;
+  --color-alert: 220 38 38;
+  --color-text-primary: 30 41 59;
+  --color-text-secondary: 100 116 139;
+  --color-border: 226 232 240;
+  --color-card: 255 255 255;
+  --status-ok: #16A34A;
+  --status-ok-bg: #F0FDF4;
+  --status-warning: #F59E0B;
+  --status-warning-bg: #FFFBEB;
+  --status-error: #DC2626;
+  --status-error-bg: #FEF2F2;
+  --map-land: #dfeafc;
+  --map-stroke: #a7bbd8;
+  --map-grid: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --color-background: 5 11 20;
+  --color-sidebar: 3 10 19;
+  --color-primary: 34 211 238;
+  --color-electric: 59 130 246;
+  --color-network: 59 130 246;
+  --color-security: 52 211 153;
+  --color-cost: 251 191 36;
+  --color-alert: 248 113 113;
+  --color-text-primary: 226 242 252;
+  --color-text-secondary: 148 177 194;
+  --color-border: 30 58 82;
+  --color-card: 11 22 34;
+  --status-ok: #34D399;
+  --status-ok-bg: rgba(52, 211, 153, 0.12);
+  --status-warning: #FBBF24;
+  --status-warning-bg: rgba(251, 191, 36, 0.12);
+  --status-error: #FB7185;
+  --status-error-bg: rgba(248, 113, 113, 0.12);
+  --map-land: #123047;
+  --map-stroke: #28506a;
+  --map-grid: #22d3ee;
+  color-scheme: dark;
+}
+
 @layer base {
+  html {
+    @apply bg-background;
+  }
+
   body {
     @apply bg-background text-text-primary antialiased;
     font-family: "Inter", system-ui, -apple-system, sans-serif;
@@ -19,12 +73,98 @@
   p, span, div {
     @apply text-[14px];
   }
+
+  button, input, select, textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.25);
+  }
 }
 
 @layer components {
-  /* Card base reutilizable — el resto de las tarjetas (StatCard, ServiceCard, etc.)
-     parten de esta clase para mantener el mismo radio, sombra y borde en todo el sistema */
   .app-card {
     @apply bg-card border border-border rounded-card shadow-card p-5;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .dark .app-card {
+    border-radius: 10px;
+    background-image: linear-gradient(rgba(34, 211, 238, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.025) 1px, transparent 1px);
+    background-size: 28px 28px;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+  }
+
+  .dark .app-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58px;
+    height: 1px;
+    background: #22D3EE;
+    box-shadow: 0 0 9px rgba(34, 211, 238, 0.65);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .dark .rounded-card {
+    border-radius: 10px;
+  }
+
+  .dark .rounded-xl {
+    border-radius: 8px;
+  }
+
+  .dark .rounded-2xl {
+    border-radius: 10px;
+  }
+
+  .hud-toggle {
+    min-width: 36px;
+  }
+
+  .dark .hud-toggle {
+    background: rgba(34, 211, 238, 0.06);
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.12);
+  }
+
+  .hud-active {
+    position: relative;
+  }
+
+  .dark .hud-active {
+    border-color: rgba(34, 211, 238, 0.72);
+    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.28), 0 0 20px rgba(34, 211, 238, 0.15);
+  }
+
+  .circuit-divider {
+    position: relative;
+    border-top: 1px solid rgb(var(--color-border));
+  }
+
+  .dark .circuit-divider {
+    border-top-color: rgba(34, 211, 238, 0.28);
+  }
+
+  .dark .circuit-divider::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 34px;
+    height: 3px;
+    background: #22D3EE;
+    box-shadow: 0 0 8px rgba(34, 211, 238, 0.6);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  .dark .app-shell {
+    background-image: linear-gradient(rgba(34, 211, 238, 0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.018) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 }

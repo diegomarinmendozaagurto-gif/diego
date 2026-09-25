@@ -19,6 +19,22 @@ export const monthlyCostTrend = [
   { month: "Sep", cost: 1842 },
 ];
 
+export const costDistribution = [
+  { name: "Compute", value: 720, color: "#2563EB" },
+  { name: "Storage", value: 410, color: "#10B981" },
+  { name: "Network", value: 300, color: "#F59E0B" },
+  { name: "Security", value: 180, color: "#8B5CF6" },
+];
+
+export const performanceTrend = [
+  { month: "Abr", latency: 72, throughput: 58 },
+  { month: "May", latency: 68, throughput: 64 },
+  { month: "Jun", latency: 66, throughput: 71 },
+  { month: "Jul", latency: 61, throughput: 75 },
+  { month: "Ago", latency: 59, throughput: 79 },
+  { month: "Sep", latency: 55, throughput: 83 },
+];
+
 export const securityIndicators: SecurityIndicator[] = [
   {
     id: "iam",

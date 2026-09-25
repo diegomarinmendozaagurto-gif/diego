@@ -20,6 +20,8 @@ export interface Region {
   id: string;
   region: string; // ej. "us-east-1"
   location: string; // ej. "Virginia, EE.UU."
+  lat: number;
+  lng: number;
   deployedServices: string[];
   status: StatusLevel;
   load?: number; // 20-90, simulado para uso de la región

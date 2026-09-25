@@ -75,10 +75,10 @@ export default function Network() {
         />
         <FlowArrow />
 
-        <div className="flex flex-1 flex-col rounded-card border-2 border-primary/30 bg-primary/5 p-4 sm:p-5">
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-2 border-b border-primary/20 pb-3">
+        <div className="hud-active flex flex-1 flex-col rounded-panel border-2 border-primary/30 bg-primary/5 p-4 sm:p-5">
+          <div className="circuit-divider mb-4 flex flex-wrap items-center justify-between gap-2 pb-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white dark:text-background">
                 <NetworkIcon size={18} strokeWidth={2.2} />
               </div>
               <div>
@@ -106,7 +106,7 @@ export default function Network() {
           </div>
 
           <div className="grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
-            <div className="rounded-xl border border-border bg-card p-4">
+            <div className="rounded-lg border border-border bg-card p-4">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2">
                   <Layers size={16} className="text-primary" />
@@ -138,7 +138,7 @@ export default function Network() {
 
             <div className="flex flex-col gap-3">
               <FlowArrow />
-              <div className="rounded-xl border border-border bg-card p-4">
+              <div className="rounded-lg border border-border bg-card p-4">
                 <div className="mb-3 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <Layers size={16} className="text-security" />
@@ -156,7 +156,7 @@ export default function Network() {
                 <div className="flex items-center gap-3 rounded-lg border border-border bg-background p-3">
                   <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <Database size={16} />
-                    <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-security text-white">
+                    <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-security text-white dark:text-background">
                       <Lock size={9} strokeWidth={3} />
                     </span>
                   </div>

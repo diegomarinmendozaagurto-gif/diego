@@ -67,7 +67,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2.5 text-[14px] transition-colors ${
                   isActive
-                    ? "bg-primary/15 font-medium text-white"
+                     ? "bg-primary/15 font-medium text-white dark:text-background"
+
                     : "text-slate-400 hover:bg-white/5 hover:text-white"
                 }`
               }

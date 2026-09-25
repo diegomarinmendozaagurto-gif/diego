@@ -31,7 +31,7 @@ export default function Security() {
   return (
     <div className="space-y-6">
       <div>
-        <div className="app-card">
+        <div className="app-card hud-active">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <h2>Resumen de seguridad</h2>

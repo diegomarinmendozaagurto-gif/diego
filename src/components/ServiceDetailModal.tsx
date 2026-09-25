@@ -86,7 +86,7 @@ export default function ServiceDetailModal({
       <div className="absolute inset-0 bg-sidebar/60 backdrop-blur-sm" />
 
       <div
-        className={`relative max-h-[88vh] w-full overflow-y-auto rounded-t-card bg-card p-5 shadow-2xl transition-all duration-200 ease-out sm:max-w-lg sm:rounded-card ${
+        className={`relative max-h-[88vh] w-full overflow-y-auto rounded-t-panel border border-border bg-card p-5 shadow-2xl transition-all duration-200 ease-out dark:border-electric/40 dark:shadow-hud sm:max-w-lg sm:rounded-panel ${
           overlayVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
         onClick={(e) => e.stopPropagation()}

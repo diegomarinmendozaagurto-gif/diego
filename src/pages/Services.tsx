@@ -19,6 +19,7 @@ import {
 import ServiceCard from "../components/ServiceCard";
 import ServiceDetailModal from "../components/ServiceDetailModal";
 import StatCard from "../components/StatCard";
+import { useTheme } from "../context/ThemeContext";
 import type { AWSService } from "../types/cloud";
 import { awsServices } from "../data/awsServices";
 
@@ -31,12 +32,20 @@ const CATEGORIES: Array<AWSService["category"] | "Todas"> = [
   "Seguridad",
 ];
 
-const CATEGORY_COLORS: Record<AWSService["category"], string> = {
+const LIGHT_CATEGORY_COLORS: Record<AWSService["category"], string> = {
   Cómputo: "#2563EB",
   Almacenamiento: "#F59E0B",
   "Base de datos": "#16A34A",
   Redes: "#0F172A",
   Seguridad: "#DC2626",
+};
+
+const DARK_CATEGORY_COLORS: Record<AWSService["category"], string> = {
+  Cómputo: "#22D3EE",
+  Almacenamiento: "#3B82F6",
+  "Base de datos": "#34D399",
+  Redes: "#3B82F6",
+  Seguridad: "#FB7185",
 };
 
 interface CategoryTooltipProps {
@@ -50,7 +59,7 @@ function CategoryTooltip({ active, payload, total }: CategoryTooltipProps) {
   const entry = payload[0];
   const percent = total > 0 ? Math.round((entry.value / total) * 100) : 0;
   return (
-    <div className="rounded-lg border border-border bg-card px-3 py-2 text-[12px] shadow-lg">
+    <div className="rounded-lg border border-border bg-card px-3 py-2 text-[12px] shadow-lg dark:shadow-hud">
       <p className="font-semibold text-text-primary">{entry.name}</p>
       <p className="text-text-secondary">
         {entry.value} servicio{entry.value === 1 ? "" : "s"} · {percent}%
@@ -63,6 +72,7 @@ const inputClass =
   "w-full rounded-lg border border-border bg-background px-3 py-2.5 text-[14px] text-text-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-text-secondary";
 
 export default function Services() {
+  const { isDark } = useTheme();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<AWSService["category"] | "Todas">(
     "Todas"
@@ -70,6 +80,7 @@ export default function Services() {
   const [selectedService, setSelectedService] = useState<AWSService | null>(
     null
   );
+  const categoryColors = isDark ? DARK_CATEGORY_COLORS : LIGHT_CATEGORY_COLORS;
 
   const stats = useMemo(
     () => ({
@@ -158,7 +169,7 @@ export default function Services() {
                   innerRadius={52}
                   outerRadius={88}
                   paddingAngle={2}
-                  stroke="#FFFFFF"
+                  stroke={isDark ? "#0B1622" : "#FFFFFF"}
                   cursor="pointer"
                   onClick={(_, index) => {
                     const entry = categoryData[index];
@@ -171,19 +182,22 @@ export default function Services() {
                     return (
                       <Cell
                         key={entry.category}
-                        fill={CATEGORY_COLORS[entry.category]}
+                        fill={categoryColors[entry.category]}
                         opacity={isActive ? 1 : 0.3}
                       />
                     );
                   })}
                 </Pie>
-                <Tooltip
-                  content={<CategoryTooltip total={stats.total} />}
-                />
+                <Tooltip content={<CategoryTooltip total={stats.total} />} />
                 <Legend
                   iconType="circle"
                   formatter={(label) => (
-                    <span style={{ color: "#1E293B", fontSize: 13 }}>
+                    <span
+                      style={{
+                        color: isDark ? "#E2F2FC" : "#1E293B",
+                        fontSize: 13,
+                      }}
+                    >
                       {label}
                     </span>
                   )}
@@ -223,7 +237,7 @@ export default function Services() {
                 onClick={() => setCategory(cat)}
                 className={`rounded-full px-4 py-2 text-[13px] font-medium transition-colors ${
                   active
-                    ? "bg-primary text-white"
+                    ? "bg-primary text-white dark:text-background"
                     : "border border-border bg-card text-text-secondary hover:border-primary/40 hover:text-primary"
                 }`}
               >

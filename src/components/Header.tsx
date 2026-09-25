@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
-import { Menu } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const titles: Record<string, { title: string; subtitle: string }> = {
   "/dashboard": { title: "Dashboard", subtitle: "Resumen general de la solución Cloud" },
@@ -17,6 +18,7 @@ interface HeaderProps {
 
 export default function Header({ onOpenMenu }: HeaderProps) {
   const { pathname } = useLocation();
+  const { isDark, toggleTheme } = useTheme();
   const current = titles[pathname] ?? { title: "CloudOps Dashboard", subtitle: "" };
 
   return (
@@ -41,6 +43,16 @@ export default function Header({ onOpenMenu }: HeaderProps) {
         <span className="text-[13px] font-medium bg-primary/10 text-primary px-2.5 py-1 rounded-full">
           us-east-1
         </span>
+        <button
+          type="button"
+          aria-label={isDark ? "Activar tema claro" : "Activar tema oscuro"}
+          aria-pressed={isDark}
+          title={isDark ? "Activar tema claro" : "Activar tema oscuro"}
+          onClick={toggleTheme}
+          className="hud-toggle inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-text-secondary transition-all hover:border-primary/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+        >
+          {isDark ? <Sun size={17} strokeWidth={2} /> : <Moon size={17} strokeWidth={2} />}
+        </button>
       </div>
     </header>
   );
